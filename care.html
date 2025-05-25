@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect Our Wildlife - Global Animal Conservation Initiative</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #e6f2ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #a1d6f7 0%, #75baec 100%);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .tagline {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 30px;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            color: #1a75b8;
+        }
+        
+        .tab-btn:hover {
+            background-color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .tab-btn.active {
+            background-color: #fff;
+            color: #0a4f85;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Content Sections */
+        .content-section {
+            display: none;
+            padding: 40px 20px;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            color: #0a4f85;
+            margin-bottom: 20px;
+            font-size: 28px;
+            border-bottom: 2px solid #a1d6f7;
+            padding-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-image {
+            height: 200px;
+            background-color: #a1d6f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card h3 {
+            color: #1a75b8;
+            margin-bottom: 10px;
+        }
+        
+        /* Action Section */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .action-btn {
+            padding: 12px 25px;
+            background-color: #1a75b8;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .action-btn:hover {
+            background-color: #0a4f85;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        /* Facts Section */
+        .fact-container {
+            background-color: #fff;
+            border-left: 4px solid #1a75b8;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* Map Section */
+        .map-container {
+            background-color: #d1e7f8;
+            height: 300px;
+            margin: 30px 0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #1a75b8;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0a4f85;
+            color: #fff;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: #a1d6f7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+                border-radius: 15px;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 28px;
+            }
+            
+            .tagline {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo floating">Wildlife Protection</div>
+            <div class="tagline">Preserving Earth's Biodiversity for Future Generations</div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="home">Home</button>
+                <button class="tab-btn" data-tab="endangered">Endangered Species</button>
+                <button class="tab-btn" data-tab="conservation">Conservation</button>
+                <button class="tab-btn" data-tab="help">How To Help</button>
+                <button class="tab-btn" data-tab="about">About Us</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home" class="content-section active">
+            <h2>Protecting Wildlife Together</h2>
+            <p>Welcome to our global initiative for wildlife conservation. Our mission is to protect endangered species, preserve natural habitats, and promote biodiversity across the planet.</p>
+            <p>Every species plays a crucial role in maintaining the delicate balance of our ecosystems. Through education, conservation efforts, and community engagement, we can ensure a sustainable future for all life on Earth.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image">Marine Life</div>
+                    <div class="card-content">
+                        <h3>Ocean Conservation</h3>
+                        <p>Protecting marine ecosystems and addressing threats such as overfishing, pollution, and climate change impacts.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image">Forests</div>
+                    <div class="card-content">
+                        <h3>Forest Protection</h3>
+                        <p>Preserving forest habitats that serve as homes to countless species and provide essential services to our planet.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image">Wildlife</div>
+                    <div class="card-content">
+                        <h3>Species Preservation</h3>
+                        <p>Safeguarding endangered animals through breeding programs, anti-poaching measures, and habitat protection.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="action-btn">Get Involved Today</button>
+                <button class="action-btn">Learn More</button>
+            </div>
+        </section>
+        
+        <!-- Endangered Species Section -->
+        <section id="endangered" class="content-section">
+            <h2>Endangered Species</h2>
+            <p>Many animal species are currently facing extinction due to habitat loss, pollution, climate change, and human activities. Here are some of the most critically endangered species that need our protection:</p>
+            
+            <div class="fact-container">
+                <p><strong>Did you know?</strong> We are currently experiencing the sixth mass extinction event in Earth's history, with extinction rates estimated to be 1,000 times higher than natural background rates.</p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image">Amur Leopard</div>
+                    <div class="card-content">
+                        <h3>Amur Leopard</h3>
+                        <p>With fewer than 100 individuals remaining in the wild, the Amur Leopard is one of the world's most endangered big cats.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image">Vaquita</div>
+                    <div class="card-content">
+                        <h3>Vaquita</h3>
+                        <p>The world's most endangered marine mammal, with only about 10 individuals remaining in the Gulf of California.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image">Javan Rhino</div>
+                    <div class="card-content">
+                        <h3>Javan Rhino</h3>
+                        <p>With only around 60 individuals left, all living in one national park in Indonesia, the Javan Rhino faces severe extinction risk.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-container">[Interactive Map of Endangered Species Locations]</div>
+        </section>
+        
+        <!-- Conservation Section -->
+        <section id="conservation" class="content-section">
+            <h2>Conservation Efforts</h2>
+            <p>Conservation organizations worldwide are working tirelessly to protect and preserve wildlife through various strategies and initiatives:</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image">Protected Areas</div>
+                    <div class="card-content">
+                        <h3>Protected Areas</h3>
+                        <p>Establishing and managing national parks, wildlife reserves, and marine protected areas to safeguard critical habitats.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image">Breeding Programs</div>
+                    <div class="card-content">
+                        <h3>Breeding Programs</h3>
+                        <p>Captive breeding initiatives help increase populations of critically endangered species for potential reintroduction to the wild.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image">Anti-Poaching</div>
+                    <div class="card-content">
+                        <h3>Anti-Poaching Efforts</h3>
+                        <p>Training and equipping rangers to protect wildlife from illegal hunting and combat wildlife trafficking networks.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image">Habitat Restoration</div>
+                    <div class="card-content">
+                        <h3>Habitat Restoration</h3>
+                        <p>Restoring damaged ecosystems to provide suitable habitats for wildlife to thrive again in areas affected by human activities.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fact-container">
+                <p><strong>Success Story:</strong> The Giant Panda has been downgraded from "Endangered" to "Vulnerable" thanks to successful conservation efforts in China, showing that dedicated protection work can help species recover.</p>
+            </div>
+        </section>
+        
+        <!-- How To Help Section -->
+        <section id="help" class="content-section">
+            <h2>How You Can Help</h2>
+            <p>Each of us can contribute to wildlife conservation through our daily choices and actions. Here are some meaningful ways you can make a difference:</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image">Reduce & Recycle</div>
+                    <div class="card-content">
+                        <h3>Reduce & Recycle</h3>
+                        <p>Minimize plastic use and properly recycle to prevent pollution that harms wildlife and their habitats.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image">Sustainable Choices</div>
+                    <div class="card-content">
+                        <h3>Make Sustainable Choices</h3>
+                        <p>Choose sustainable products, reduce consumption of resources, and support companies with environmentally friendly practices.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image">Volunteer</div>
+                    <div class="card-content">
+                        <h3>Volunteer & Donate</h3>
+                        <p>Support conservation organizations through donations or by volunteering your time and skills to local initiatives.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image">Education</div>
+                    <div class="card-content">
+                        <h3>Spread Awareness</h3>
+                        <p>Educate others about the importance of wildlife conservation and inspire them to take action in their communities.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="action-btn">Donate Now</button>
+                <button class="action-btn">Join Our Community</button>
+            </div>
+        </section>
+        
+        <!-- About Us Section -->
+        <section id="about" class="content-section">
+            <h2>About Our Organization</h2>
+            <p>We are a global network of conservationists, scientists, educators, and volunteers dedicated to protecting wildlife and their habitats.</p>
+            <p>Our organization works across continents to implement conservation programs, conduct scientific research, and develop educational initiatives that promote sustainable coexistence between humans and wildlife.</p>
+            
+            <div class="fact-container">
+                <p><strong>Our Impact:</strong> Over the past decade, our projects have helped protect more than 2 million hectares of critical wildlife habitat and supported the recovery of numerous endangered species.</p>
+            </div>
+            
+            <h3 style="color: #1a75b8; margin-top: 30px;">Our Core Values</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Scientific Approach</h3>
+                        <p>Our conservation work is guided by rigorous scientific research and evidence-based practices.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Collaboration</h3>
+                        <p>We partner with local communities, governments, and other organizations to achieve lasting conservation results.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Education</h3>
+                        <p>We believe that raising awareness and providing education are essential components of effective conservation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo" style="font-size: 24px;">Wildlife Protection</div>
+                <div class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#">Programs</a>
+                    <a href="#">Get Involved</a>
+                    <a href="#">News</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Support Us</a>
+                </div>
+                <p class="copyright">© 2025 Wildlife Protection. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Tab Navigation System
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const contentSections = document.querySelectorAll('.content-section');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Hide all content sections
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    // Show the selected content section
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Card Animation on Scroll
+            const cards = document.querySelectorAll('.card');
+            
+            function checkScroll() {
+                cards.forEach(card => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    const cardBottom = card.getBoundingClientRect().bottom;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (cardTop < windowHeight - 100 && cardBottom > 0) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    } else {
+                        card.style.opacity = '0.5';
+                        card.style.transform = 'translateY(20px)';
+                    }
+                });
+            }
+            
+            // Initialize cards
+            cards.forEach(card => {
+                card.style.opacity = '0.5';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Check scroll position on page load
+            checkScroll();
+            
+            // Check scroll position on scroll
+            window.addEventListener('scroll', checkScroll);
+        });
+    </script>
+</body>
+</html>
